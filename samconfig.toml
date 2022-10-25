@@ -1,0 +1,22 @@
+version = 0.1
+[default.local_start_api.parameters]
+parameter_overrides = "Environment=\"dev\""
+
+[build.package.parameters]
+region = "us-east-1"
+s3_bucket = "aom-build-automation-artifacts"
+s3_prefix = "aom-rust-lambda-poc"
+output_template_file = "packaged.yaml"
+
+[build.build.parameters]
+parallel = "true"
+
+[sandbox.deploy.parameters]
+region = "us-east-1"
+s3_bucket = "lifeway-test-binaries"
+s3_prefix = "aom-rust-lambda-poc"
+output_template_file = "packaged.yaml"
+role_arn = "arn:aws:iam::345777899508:role/cloudops-cf-automation-bsolutions-cfservicerole"
+parameter_overrides = "Environment=\"dev\""
+stack_name = "aom-rust-lambda-poc"
+tags = "Department=\"digital-experience\" Owner=\"aom\" Project=\"poc\" Application=\"poc\" Role=\"api\" Environment=\"dev\""
