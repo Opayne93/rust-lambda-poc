@@ -1,9 +1,9 @@
-use std::borrow::Borrow;
+
 use lambda_http::{Body, Request};
-use lambda_runtime::{service_fn, LambdaEvent, Error};
+use lambda_runtime::{service_fn, Error};
 use serde_json::{json, Value};
 use serde::{Deserialize, Serialize};
-use tracing::log::info;
+
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
